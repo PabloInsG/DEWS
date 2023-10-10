@@ -60,7 +60,6 @@
                             $numeroOK = true;
                         }
                     }
-                    
                     if($numeroOK){
                         if((int) $_GET["numero"] == $_GET["numero"]){
                             echo "El numero es entero";

@@ -11,8 +11,10 @@
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
         <h1>FORMULARIO ASTERISCOS</h1>
             <div class="inputs">
+                <center>
                 <p>Introduce un numero</p>
-                <input type="number" name="numero" id="">
+                    <input type="number" style="border-radius: 0rem; height: 30px " name="numero" id="">
+                </center>
             </div>
             <div class="submit">
                 <input type="submit" value="Enviar">
@@ -27,7 +29,7 @@
                     for($i = 0; $i < $numero; $i++){
                         print "*";
                     } else{
-                        echo "No puede ser un valor negativo";
+                        echo "(No puede ser un valor negativo)";
                     }
                 ?>
             </div>

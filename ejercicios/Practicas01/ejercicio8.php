@@ -8,11 +8,11 @@
 </head>
 <body>
     <div class="container">
-        <form action="ejercicio3_2.php" method="GET">
-            <h1>FORMULARIO TIPO NUMERO</h1>
+        <form action="ejercicio8_2.php" method="GET">
+            <h1>MOSTRAR SUMA PARES</h1>
             <div class="inputs">
-                <p>Introduce un numero</p>
-                <input type="number" step="any" name="numero" id="">
+                <p>Introduce un numero entero</p>
+                <input type="number" name="numero" id="">
             </div>
             <div class="submit">
                 <input type="submit" value="Enviar">
