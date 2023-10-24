@@ -10,7 +10,11 @@
             font-family: Arial, Helvetica, sans-serif;
         }
         .container{
-            justify-content: center;
+            justify-content: space-around;
+        }
+
+        form{
+            height: 700px;
         }
 
         .inputs{
@@ -51,8 +55,7 @@
             <div class="submit">
                 <input type="submit" value="Jugar">
             </div>
-        </form>
-    </div>
+        
 
     <?php
         error_reporting(E_ALL ^ E_WARNING); 
@@ -62,24 +65,78 @@
         }
 
         $combinada = [];
-        $contador1acierto= 0;
-        $contador2acierto= 0;
-        $contador3acierto= 0;
-        $contador4acierto= 0;
-        $contador5acierto= 0;
+        $arrayAciertos = [0, 0, 0, 0, 0, 0, 0];
+        $contadorAciertos= 0;
         for($i = 1; $i <= $jugadas; $i++){
             for($j = 0; $j < 6; $j++){
                 $combinada[$j] = rand(1,49);
             }
-            print "Combinada " . $i . ":";
-            foreach($combinada as $indice=>$valores){
-                print $valores . " | ";
+            foreach($combinada as $indice=>$valores){    
+                if(array_search($valores, $numeros)){
+                    $contadorAciertos++;
+                }
             }
-            print "<br>";
+            $arrayAciertos[$contadorAciertos]++;
+            $contadorAciertos = 0;
         }
-        print "<br>";
-        print_r($combinada);
+        print "<br>Cantidad aciertos:<br>";
+        print "0 aciertos: " . $arrayAciertos[0] . "<br>";
+        print "1 aciertos: " . $arrayAciertos[1] . "<br>";
+        print "2 aciertos: " . $arrayAciertos[2] . "<br>";
+        print "3 aciertos: " . $arrayAciertos[3] . "<br>";
+        print "4 aciertos: " . $arrayAciertos[4] . "<br>";
+        print "5 aciertos: " . $arrayAciertos[5] . "<br>";
+        print "6 aciertos: " . $arrayAciertos[6] . "<br>";
 
+        //print_r($combinada);
     ?>
+    </form>
+
+    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
+            <h1>PRIMITIVA</h1>
+            <div class="inputs">
+                <p>Introduce tus numeros del 1 al 49:</p>
+                 <input type="number" class="no-radius" name="numeros[numero1]" id="" min="1" max="49">       
+                 <input type="number" class="no-radius" name="numeros[numero2]" id="" min="1" max="49">       
+                 <input type="number" class="no-radius" name="numeros[numero3]" id="" min="1" max="49">       
+                 <input type="number" class="no-radius" name="numeros[numero4]" id="" min="1" max="49">       
+                 <input type="number" class="no-radius" name="numeros[numero5]" id="" min="1" max="49">       
+                 <input type="number" class="no-radius" name="numeros[numero6]" id="" min="1" max="49">
+                 <p>Cuantos aciertos desea poner?</p>
+                 <input type="number" class="no-radius" name="aciertos" id="" min="1" max="6">       
+            </div>
+            <div class="submit">
+                <input type="submit" value="Jugar">
+            </div>
+        
+
+    <?php
+        error_reporting(E_ALL ^ E_WARNING); 
+        if($_SERVER['PHP_SELF'] = "POST"){
+            $numeros = $_POST["numeros"];
+            $aciertos = $_POST["aciertos"];
+        }
+
+        do{
+            $intentos++;
+            $combinada = [];
+            for($j = 0; $j < 6; $j++){
+                    $combinada[$j] = rand(1,49);
+            }
+
+        } while($aciertos != $acierto);
+        /*
+            foreach($combinada as $indice=>$valores){    
+                if(array_search($valores, $numeros)){
+                    $contadorAciertos++;
+                }
+            }
+            $arrayAciertos[$contadorAciertos]++;
+            $contadorAciertos = 0;
+            */
+    ?>
+    </form>
+
+    </div>
 </body>
 </html>
