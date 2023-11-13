@@ -6,6 +6,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            justify-content: center;
+        }
+
         .horizontal{
             display:flex;
             flex-direction: row;

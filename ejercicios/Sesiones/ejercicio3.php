@@ -6,20 +6,28 @@
     <title>Document</title>
     <style>
         body{
-            width: 100%;
+            width: 90%;
+            height: 800px;
             background-color: #482e5f;
             color: #FFFFFF;
             font-family: Arial, Helvetica, sans-serif;
         }
         form{
+            display: flex;
             background: #6f4695;
             border-radius: 0.5rem;
-            display: flex;
             flex-direction: column;
             width: 450px;
             height: 500px;
+            margin-left: 10%;
         }
-
+        .formulario{
+            display: flex;
+            width: 100%;
+            height: 760px;
+            align-items: center;
+            justify-content: center;
+        }
         p{
             margin-left: 10px;
         }
@@ -31,16 +39,18 @@
             border: solid 1px #000000;
         }
 
-        textarea{
+        select{
             margin-left: 10px;
             width: 90%;
+            height: 20px;
+            border: solid 1px #000000;
         }
 
         .submit{
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         input[type="submit"]{
@@ -56,38 +66,18 @@
     </style>
 </head>
 <body>
-    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-        <p>Nombre:</p>
-        <input type="text" name="nombre" id="">
-        <p>Correo:</p>
-        <input type="text" name="correo" id="">
-        <p>Mensaje:</p>
-        <textarea name="mensaje" id="" cols="30" rows="10"></textarea>
-        <div class="submit">
-            <input type="submit" value="Enviar Mensaje">
+    <div class="formulario">
+
+        <form action="ejercicio3_1.php" method="POST">
+            <h1 style="text-align:center;">Formulario</h1>
+            <p>Nombre de usuario</p>
+            <input type="text" name="nombre" id="">
+            <p>Contraseña</p>
+            <input type="password" name="contrasena">
+            <div class="submit">
+            <input type="submit" value="Comprobar">
         </div>
     </form>
-    <div class="mensajes">
-        <hr>
-        <h1>Mensajes dejados por el usuario</h1>
-        <?php
-            error_reporting(E_ALL ^ E_WARNING);
-
-            $nombre = $_POST['nombre'];
-            $correo = $_POST['correo'];
-            $mensaje = $_POST['mensaje'];
-
-            $fp = fopen("mensajes.txt", "w+");
-            //$archivo2 = "mensajes.txt";
-            //$fecha = date("D d Y H:i:s", fileatime($archivo));
-            $fecha = date("F d Y H:i:s.", filemtime($archivo2));
-            if(!fopen($fp)){
-                while (!feof($fp)){
-                        fputs($fp, "$nombre ($correo) Fecha: $fecha
-                        Mensaje: $mensaje");
-                }
-            }
-        ?>
-    </div>
+</div>
 </body>
 </html>

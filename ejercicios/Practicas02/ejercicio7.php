@@ -92,51 +92,6 @@
     ?>
     </form>
 
-    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-            <h1>PRIMITIVA</h1>
-            <div class="inputs">
-                <p>Introduce tus numeros del 1 al 49:</p>
-                 <input type="number" class="no-radius" name="numeros[numero1]" id="" min="1" max="49">       
-                 <input type="number" class="no-radius" name="numeros[numero2]" id="" min="1" max="49">       
-                 <input type="number" class="no-radius" name="numeros[numero3]" id="" min="1" max="49">       
-                 <input type="number" class="no-radius" name="numeros[numero4]" id="" min="1" max="49">       
-                 <input type="number" class="no-radius" name="numeros[numero5]" id="" min="1" max="49">       
-                 <input type="number" class="no-radius" name="numeros[numero6]" id="" min="1" max="49">
-                 <p>Cuantos aciertos desea poner?</p>
-                 <input type="number" class="no-radius" name="aciertos" id="" min="1" max="6">       
-            </div>
-            <div class="submit">
-                <input type="submit" value="Jugar">
-            </div>
-        
-
-    <?php
-        error_reporting(E_ALL ^ E_WARNING); 
-        if($_SERVER['PHP_SELF'] = "POST"){
-            $numeros = $_POST["numeros"];
-            $aciertos = $_POST["aciertos"];
-        }
-
-        do{
-            $intentos++;
-            $combinada = [];
-            for($j = 0; $j < 6; $j++){
-                    $combinada[$j] = rand(1,49);
-            }
-
-        } while($aciertos != $acierto);
-        /*
-            foreach($combinada as $indice=>$valores){    
-                if(array_search($valores, $numeros)){
-                    $contadorAciertos++;
-                }
-            }
-            $arrayAciertos[$contadorAciertos]++;
-            $contadorAciertos = 0;
-            */
-    ?>
-    </form>
-
     </div>
 </body>
 </html>
