@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,16 +86,59 @@
     </form>
 
     <?php
-        $palabra1 = $_POST['palabra1'];
-        $palabra2 = $_POST['palabra2'];
-        $palabra3 = $_POST['palabra3'];
-        $palabra4 = $_POST['palabra4'];
-        $palabra5 = $_POST['palabra5'];
+        error_reporting(E_ALL ^ E_WARNING);
+        $palabra1us = $_POST['palabra1'];
+        $palabra2us = $_POST['palabra2'];
+        $palabra3us = $_POST['palabra3'];
+        $palabra4us = $_POST['palabra4'];
+        $palabra5us = $_POST['palabra5'];
 
         $aciertos = 0;
+        /*
+        print "Hola " . $_SESSION['palabra1'] . "<br>";
+        print "Hola " . $_SESSION['palabra2'] . "<br>";
+        print "Hola " . $_SESSION['palabra3'] . "<br>";
+        print "Hola " . $_SESSION['palabra4'] . "<br>";
+        print "Hola " . $_SESSION['palabra5'] . "<br>";
+        */
 
-        
+        if(isset($palabra1us)){
+            if($palabra1us == $_SESSION['palabra1']){
+                $aciertos++;
+                echo "Acertaste " . $_SESSION['palabra1'] . "<br>"; 
+            } else{
+                echo "Fallaste " . $_SESSION['palabra1'] . "<br>";
+            }
 
+            if($palabra2us == $_SESSION['palabra2']){
+                $aciertos++;
+                echo "Acertaste " . $_SESSION['palabra2'] . "<br>"; 
+            } else{
+                echo "Fallaste " . $_SESSION['palabra2'] . "<br>";
+            }
+
+            if($palabra3us == $_SESSION['palabra3']){
+                $aciertos++;
+                echo "Acertaste " . $_SESSION['palabra3'] . "<br>"; 
+            } else{
+                echo "Fallaste " . $_SESSION['palabra3'] . "<br>";
+            }
+            
+            if($palabra4us == $_SESSION['palabra4']){
+                $aciertos++;
+                echo "Acertaste " . $_SESSION['palabra4'] . "<br>"; 
+            } else{
+                echo "Fallaste " . $_SESSION['palabra4'] . "<br>";
+            }
+
+            if($palabra5us == $_SESSION['palabra5']){
+                $aciertos++;
+                echo "Acertaste " . $_SESSION['palabra5'] . "<br>"; 
+            } else{
+                echo "Fallaste " . $_SESSION['palabra5'] . "<br>";
+            }
+            print "Cantidad de Aciertos: " . $aciertos;
+        }
     ?>
 </body>
 </html>

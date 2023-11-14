@@ -62,12 +62,16 @@
             color: #FFFFFF;
             background-color: #482e5f;
         }
+
+        input[type="color"]{
+            height: 30px;
+        }
     </style>
 </head>
 <body>
     <?php
 session_start();
-
+error_reporting(E_ALL ^ E_WARNING);
 create_form();
 
 function create_form()
@@ -82,42 +86,28 @@ function create_form()
         <p>Apellidos:</p>
         <input type="text" name="apellido">
         <p>Fondo:</p>
-    <select name="fondo" id="">
-        <option value=""></option>
-        <option value="red">Rojo</option>
-        <option value="yellow">Amarillo</option>
-        <option value="green">Verde</option>
-        <option value="black">Negro</option>
-        <option value="blue">Azul</option>
-    </select>
-    <p>Color de la Letra:</p>
-    <select name="colorLetra" id="">
-        <option value=""></option>
-        <option value="red">Rojo</option>
-        <option value="yellow">Amarillo</option>
-        <option value="green">Verde</option>
-        <option value="black">Negro</option>
-        <option value="blue">Azul</option>
-    </select>
-    <p>Tipografia:</p>
-    <select name="tipografia" id="">
-        <option value=""></option>
-        <option value="Arial, Helvetica, sans-serif">Arial</option>
-        <option value="Georgia, 'Times New Roman', Times, serif">Georgia</option>
-        <option value="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Lucida Sans</option>
-        <option value="'Courier New', Courier, monospace">Courier New</option>
-    </select>
-    <p>Tamaño:</p>
-    <select name="tamaño" id="">
-        <option value=""></option>
-        <option value="14px">14px</option>
-        <option value="20px">20px</option>
-        <option value="32px">32px</option>
-        <option value="42px">42px</option>
-    </select>
-    <div class="submit">
-        <input type="submit" name="Enviar">
-    </div>
+        <input type="color" name="fondo" id="">
+        <p>Color de la Letra:</p>
+        <input type="color" name="color" id="">
+        <p>Tipografia:</p>
+        <select name="tipografia" id="">
+            <option value=""></option>
+            <option value="Arial, Helvetica, sans-serif">Arial</option>
+            <option value="Georgia, 'Times New Roman', Times, serif">Georgia</option>
+            <option value="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Lucida Sans</option>
+            <option value="'Courier New', Courier, monospace">Courier New</option>
+        </select>
+        <p>Tamaño:</p>
+        <select name="tamaño" id="">
+            <option value=""></option>
+            <option value="14px">14px</option>
+            <option value="20px">20px</option>
+            <option value="32px">32px</option>
+            <option value="42px">42px</option>
+        </select>
+        <div class="submit">
+            <input type="submit" name="Enviar">
+        </div>
     
 </form>
 </div>

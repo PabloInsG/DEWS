@@ -1,11 +1,13 @@
 <?php
 session_start();
+
 $_SESSION["nombre"] = $_POST["nombre"];
 $_SESSION["apellido"] = $_POST["apellido"];
 $_SESSION["fondo"] = $_POST["fondo"];
-$_SESSION["colorLetra"] = $_POST["colorLetra"];
+$_SESSION["color"] = $_POST["color"];
 $_SESSION["tipografia"] = $_POST["tipografia"];
 $_SESSION["tamaño"] = $_POST["tamaño"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +18,7 @@ $_SESSION["tamaño"] = $_POST["tamaño"];
     <style>
         body{
             background-color: <?php echo $_SESSION["fondo"] ?>;
-            color: <?php echo $_SESSION["colorLetra"] ?>;
+            color: <?php echo $_SESSION["color"] ?>;
             font-family: <?php echo $_SESSION["tipografia"] ?>;
             font-size: <?php echo $_SESSION["tamaño"] ?>;
         }
@@ -36,7 +38,7 @@ $_SESSION["tamaño"] = $_POST["tamaño"];
             scale: 1.1;
 	        transition: all .5s ease-in-out;
             color: <?php echo $_SESSION["fondo"] ?>;
-            background-color: <?php echo $_SESSION["colorLetra"] ?>;
+            background-color: <?php echo $_SESSION["color"] ?>;
         }
         .div{
             display: flex;
