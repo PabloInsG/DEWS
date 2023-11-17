@@ -21,27 +21,25 @@
         "inóspito", "guerrero", "moldeable", "tirano", "candidato",
         "rápido", "bondad", "clásico", "galante", "hermandad", "siniestro",
         "cónico", "aburrido", "metalurgia", "sideral", "comando"];
-    ?>
-        <?php
         $i = 0;
         do{
-            $random = rand(0,35);
+            shuffle($palabras);
             foreach($palabras as $posicion=>$valor){
-                if($random == $posicion){
+                if($i < 5){
                     $i++;
                     $_SESSION["palabra$i"] = $valor;
                     print $valor . "<br>";
-                };
+                }   
             }
         } while($i < 5)
-        ?>
+    ?>
 
 <script>
     window.onload=function(){
         //salto automático a seguinte páxina
         //document.getElementById("hidden-button").click();
         setInterval(function(){location="ejercicio5_1.php"},3600);
-        }
+    }
 </script>
 </body>
 </html>
